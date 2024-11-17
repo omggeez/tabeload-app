@@ -3,19 +3,59 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "ヒラギノ角ゴ Pro W3",
+    "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.navbar {
+  @apply flex justify-between items-center fixed w-full h-[52px] top-0 shadow-sm bg-white;
+}
+
+.navbar__logo {
+  @apply text-orange-400 text-lg font-semibold cursor-pointer px-[18px] py-0;
+}
+
+.navbar__button {
+  @apply hidden;
+}
+
+.navbar__list {
+  @apply flex gap-5 items-center px-[18px] py-0;
+}
+
+.navbar__list--item {
+  @apply text-gray-800 font-semibold;
+}
+
+.navbar__list--item:hover,
+.navbar__list--item:focus {
+  @apply text-gray-400;
+}
+
+.layout {
+  @apply pt-[52px];
+}
+
+@media screen and (max-width: 600px) {
+  .navbar--mobile {
+    @apply fixed w-full text-white h-screen top-[52px] bg-orange-400;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  .navbar__button {
+    @apply block px-[18px] py-0 cursor-pointer;
+  }
+
+  .navbar__list {
+    @apply hidden;
+  }
+
+  .navbar__list--mobile {
+    @apply flex flex-col gap-4 px-[18px] py-6 font-semibold;
+  }
+
+  .navbar__list--item--mobile:hover,
+  .navbar__list--item--mobile:focus {
+    @apply text-orange-600;
+  }
 }
